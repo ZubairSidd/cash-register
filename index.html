@@ -5,48 +5,53 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;600;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Cash Register</title>
   </head>
   <body>
-    <h1>Cash Register App</h1>
-    <p>
-      Enter the bill amount and cash given by the customer and know minimum
-      number of notes to return.
-    </p>
-    <label for="billAmount">Bill Amount:</label>
-    <input type="text" name="billAmount" id="billAmount" />
-    <label for="cashGiven">Cash Given:</label>
-    <input type="text" name="cashGiven" id="cashGiven" />
-    <button id="checkButton">Check</button>
-    <table>
-      <thead>
-        <tr>
-          <th colspan="8">Notes to be given</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Note</td>
-          <td>2000</td>
-          <td>500</td>
-          <td>100</td>
-          <td>20</td>
-          <td>10</td>
-          <td>5</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>No of Notes</td>
-          <td class="twoThousand">0</td>
-          <td class="fiveHundred">0</td>
-          <td class="hundred">0</td>
-          <td class="twenty">0</td>
-          <td class="ten">0</td>
-          <td class="five">0</td>
-          <td class="one">0</td>
-        </tr>
-      </tbody>
-    </table>
+    <h1 class="header">Cash Register App</h1>
+    <main class="container">
+      <p class="headingText">
+        Enter the bill amount and cash given by the customer and know minimum
+        number of notes to return.
+      </p>
+      <label for="billAmount" class="inputLabel">Bill Amount:</label>
+      <input type="number" name="billAmount" class="inputAmount" id="billAmount"
+      / min="0">
+      <label for="cashGiven" class="inputLabel">Cash Given:</label>
+      <input
+        type="number"
+        name="cashGiven"
+        class="inputAmount"
+        id="cashGiven"
+        min="0"
+      />
+      <button id="checkButton">Check</button>
+      <p id="error"></p>
+      <table class="changeTable">
+        <caption class="tableText">
+          Change Return
+        </caption>
+        <tbody>
+          <tr>
+            <th>Note</th>
+            <td>2000</td>
+            <td>500</td>
+            <td>100</td>
+            <td>20</td>
+            <td>10</td>
+            <td>5</td>
+            <td>1</td>
+          </tr>
+          <tr class="notesTable">
+            <th class="noOfNotes">No of Notes</th>
+          </tr>
+        </tbody>
+      </table>
+    </main>
   </body>
 
   <script src="app.js"></script>
