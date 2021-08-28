@@ -15,12 +15,17 @@ body {
   color: var(--red);
 }
 .container {
+  background-color: var(--crimson);
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  padding: 1rem;
   text-align: center;
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 .inputAmount {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   border-radius: 10px;
   width: 300px;
   height: 30px;
@@ -43,6 +48,7 @@ body {
   margin: auto;
 }
 #checkButton {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   background-color: var(--blue);
   border: none;
   padding: 0.5em;

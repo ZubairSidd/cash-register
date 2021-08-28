@@ -11,14 +11,16 @@ function checkButtonHandler() {
   clearValue();
   if (billAmount.value > 0) {
     if (checkButton.innerText != "Reset") {
-      showCashGiven();
       if (parseInt(cashGiven.value) > parseInt(billAmount.value)) {
         const amountToReturn = cashGiven.value - billAmount.value;
         calculateAmount(amountToReturn);
       } else if (billAmount.value == cashGiven.value) {
         showMessage("No change needs to be given");
       } else {
-        showMessage("Given cash is less than bill amount");
+        if (checkButton.innerText == "Check") {
+          showMessage("Given Cash should be greater than bill amount");
+        }
+        showCashGiven();
       }
     } else {
       hideCashGiven();
@@ -42,13 +44,13 @@ const hideCashGiven = () => {
 };
 
 function calculateAmount(amount) {
+  checkButton.innerText = "Reset";
   for (let note of notes) {
     const noOfNotes = amount / note;
     const currentAmount = amount % note;
     amount = currentAmount;
     valueOfNotes(Math.trunc(noOfNotes));
   }
-  checkButton.innerText = "Reset";
 }
 function clearValue() {
   errorMessage.style.display = "none";
