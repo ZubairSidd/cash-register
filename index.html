@@ -21,7 +21,9 @@
       <label for="billAmount" class="inputLabel">Bill Amount:</label>
       <input type="number" name="billAmount" class="inputAmount" id="billAmount"
       / min="0">
-      <label for="cashGiven" class="inputLabel">Cash Given:</label>
+      <label for="cashGiven" id="cashGivenLabel" class="inputLabel"
+        >Cash Given:</label
+      >
       <input
         type="number"
         name="cashGiven"
@@ -29,7 +31,7 @@
         id="cashGiven"
         min="0"
       />
-      <button id="checkButton">Check</button>
+      <button id="checkButton">Next</button>
       <p id="error"></p>
       <table class="changeTable">
         <caption class="tableText">

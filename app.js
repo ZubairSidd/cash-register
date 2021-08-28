@@ -1,6 +1,7 @@
 const checkButton = document.querySelector("#checkButton");
 const billAmount = document.querySelector("#billAmount");
 const cashGiven = document.querySelector("#cashGiven");
+const cashGivenLabel = document.querySelector("#cashGivenLabel");
 const errorMessage = document.querySelector("#error");
 const notes = [2000, 500, 100, 20, 10, 5, 1];
 
@@ -9,18 +10,36 @@ const notesTable = document.querySelector(".notesTable");
 function checkButtonHandler() {
   clearValue();
   if (billAmount.value > 0) {
-    if (parseInt(cashGiven.value) > parseInt(billAmount.value)) {
-      const amountToReturn = cashGiven.value - billAmount.value;
-      calculateAmount(amountToReturn);
-    } else if (billAmount.value == cashGiven.value) {
-      showMessage("No change needs to be given");
+    if (checkButton.innerText != "Reset") {
+      showCashGiven();
+      if (parseInt(cashGiven.value) > parseInt(billAmount.value)) {
+        const amountToReturn = cashGiven.value - billAmount.value;
+        calculateAmount(amountToReturn);
+      } else if (billAmount.value == cashGiven.value) {
+        showMessage("No change needs to be given");
+      } else {
+        showMessage("Given cash is less than bill amount");
+      }
     } else {
-      showMessage("Given cash is less than bill amount");
+      hideCashGiven();
     }
   } else {
     showMessage("Bill Amount Should be greater than 0");
   }
 }
+
+const showCashGiven = () => {
+  cashGiven.style.display = "block";
+  cashGivenLabel.style.display = "block";
+  checkButton.innerText = "Check";
+};
+const hideCashGiven = () => {
+  cashGiven.style.display = "none";
+  cashGivenLabel.style.display = "none";
+  cashGiven.value = "";
+  billAmount.value = "";
+  checkButton.innerText = "Next";
+};
 
 function calculateAmount(amount) {
   for (let note of notes) {
@@ -29,6 +48,7 @@ function calculateAmount(amount) {
     amount = currentAmount;
     valueOfNotes(Math.trunc(noOfNotes));
   }
+  checkButton.innerText = "Reset";
 }
 function clearValue() {
   errorMessage.style.display = "none";

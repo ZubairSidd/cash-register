@@ -30,6 +30,10 @@ body {
   font-size: 1.25rem;
   font-family: "Raleway", sans-serif;
 }
+#cashGiven,
+#cashGivenLabel {
+  display: none;
+}
 .changeTable {
   width: 70%;
   border: 2px solid var(--red);
